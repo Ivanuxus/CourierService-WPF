@@ -13,13 +13,15 @@ namespace CourierService.Views
         private readonly ICargoTypeRepository _cargoTypeRepository;
         private readonly ICourierRepository _courierRepository;
         private readonly ITransportRepository _transportRepository;
+        private readonly IDeliveryRepository _deliveryRepository; // Add this line for Delivery repository
 
         public AddOrderWindow(
             IOrderRepository orderRepository,
             IClientRepository clientRepository,
             ICargoTypeRepository cargoTypeRepository,
             ICourierRepository courierRepository,
-            ITransportRepository transportRepository)
+            ITransportRepository transportRepository,
+            IDeliveryRepository deliveryRepository) // Add this parameter
         {
             InitializeComponent();
             _orderRepository = orderRepository;
@@ -27,6 +29,7 @@ namespace CourierService.Views
             _cargoTypeRepository = cargoTypeRepository;
             _courierRepository = courierRepository;
             _transportRepository = transportRepository;
+            _deliveryRepository = deliveryRepository; // Initialize Delivery repository
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
@@ -72,6 +75,7 @@ namespace CourierService.Views
                     };
                     _clientRepository.AddClient(client);
                 }
+
                 // Process cargo type
                 CargoType cargoType;
                 cargoType = _cargoTypeRepository.GetAllCargoTypes()
@@ -129,6 +133,7 @@ namespace CourierService.Views
                     };
                     _transportRepository.AddTransport(transport);
                 }
+
                 // Create new order
                 var newOrder = new Order
                 {
@@ -144,6 +149,17 @@ namespace CourierService.Views
 
                 // Add order to repository
                 _orderRepository.AddOrder(newOrder);
+
+                // Create and add delivery
+                var delivery = new Delivery
+                {
+                    DeliveryID = newOrder.OrderID,
+                    OrderID = newOrder.OrderID,
+                    DeliveryDate = orderDate.AddDays(1), // Example: Set delivery date to the next day
+                    TotalPrice = newOrder.BasePrice // Use the order base price as total price
+                };
+                _deliveryRepository.AddDelivery(delivery);
+
                 MessageBox.Show($"Order successfully added with ID: {newOrder.OrderID}.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
             }
@@ -156,8 +172,5 @@ namespace CourierService.Views
                 MessageBox.Show($"An error occurred while adding the order: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
     }
 }
-
-

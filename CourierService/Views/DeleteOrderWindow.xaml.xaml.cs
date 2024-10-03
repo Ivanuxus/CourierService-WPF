@@ -17,13 +17,15 @@ namespace CourierService.Views
         private readonly ICargoTypeRepository _cargoTypeRepository; 
         private readonly ICourierRepository _courierRepository; 
         private readonly ITransportRepository _transportRepository;
+        private readonly IDeliveryRepository _deliveryRepository;
 
         public DeleteOrderWindow(
     IOrderRepository orderRepository,
     IClientRepository clientRepository,
     ICargoTypeRepository cargoTypeRepository,
     ICourierRepository courierRepository,
-    ITransportRepository transportRepository)
+    ITransportRepository transportRepository,
+    IDeliveryRepository deliveryRepository)
         {
             InitializeComponent();
             _orderRepository = orderRepository;
@@ -31,8 +33,10 @@ namespace CourierService.Views
             _cargoTypeRepository = cargoTypeRepository;
             _courierRepository = courierRepository;
             _transportRepository = transportRepository;
+            _deliveryRepository = deliveryRepository;
 
             LoadOrderIds(); // Если нужно, чтобы загрузить заказы при открытии окна
+            
         }
 
         private void LoadOrderIds()
@@ -61,8 +65,8 @@ namespace CourierService.Views
         {
             // Генерация и сохранение договора
             GenerateAndSaveContract(order);
-
-            // Удаление заказа
+            _deliveryRepository.DeleteDeliveryByOrderId(selectedOrderId);
+                    // Удаление заказа
             _orderRepository.DeleteOrder(selectedOrderId);
             MessageBox.Show("Заказ успешно удален.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
             Close();

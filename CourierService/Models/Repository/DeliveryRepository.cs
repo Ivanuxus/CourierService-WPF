@@ -51,6 +51,24 @@ namespace CourierService.Models.Repository
                 await _context.SaveChangesAsync();
             }
         }
+        public void AddDelivery(Delivery delivery)
+        {
+            _context.Deliveries.Add(delivery);
+            _context.SaveChanges();
+        }
+        public void DeleteDeliveryByOrderId(int orderId)
+        {
+            using (var context = new CourierServiceContext())
+            {
+                var delivery = context.Deliveries.FirstOrDefault(d => d.OrderID == orderId);
+                if (delivery != null)
+                {
+                    context.Deliveries.Remove(delivery);
+                    context.SaveChanges();
+                }
+            }
+        }
+
     }
 
 

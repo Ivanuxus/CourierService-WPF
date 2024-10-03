@@ -33,7 +33,7 @@ namespace CourierService.Views
                 var deliveryRepository = _kernel.Get<IDeliveryRepository>();
 
                 // Создаем OrdersView с необходимыми репозиториями
-                var ordersView = new OrdersView(orderRepository, clientRepository, cargoTypeRepository, courierRepository, transportRepository);
+                var ordersView = new OrdersView(orderRepository, clientRepository, cargoTypeRepository, courierRepository, transportRepository, deliveryRepository);
 
                 // Устанавливаем OrdersView как главное окно
                 Application.Current.MainWindow = ordersView;

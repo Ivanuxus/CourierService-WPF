@@ -15,6 +15,8 @@ namespace CourierService.Models.Interfaces
         Task AddDeliveryAsync(Delivery delivery);
         Task UpdateDeliveryAsync(Delivery delivery);
         Task DeleteDeliveryAsync(int id);
+        void AddDelivery(Delivery delivery);
+        void DeleteDeliveryByOrderId(int orderId);
     }
 
 }

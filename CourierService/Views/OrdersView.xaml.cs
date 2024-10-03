@@ -14,6 +14,7 @@ namespace CourierService.Views
         private readonly IClientRepository _clientRepository;
         private readonly ICargoTypeRepository _cargoTypeRepository;
         private readonly ICourierRepository _courierRepository;
+        private readonly IDeliveryRepository _deliveryRepository;
         private readonly ITransportRepository _transportRepository;
 
         public OrdersView(
@@ -21,7 +22,8 @@ namespace CourierService.Views
             IClientRepository clientRepository,
             ICargoTypeRepository cargoTypeRepository,
             ICourierRepository courierRepository,
-            ITransportRepository transportRepository)
+            ITransportRepository transportRepository,
+            IDeliveryRepository deliveryRepository)
         {
             InitializeComponent();
             _orderRepository = orderRepository;
@@ -29,6 +31,7 @@ namespace CourierService.Views
             _cargoTypeRepository = cargoTypeRepository;
             _courierRepository = courierRepository;
             _transportRepository = transportRepository;
+            _deliveryRepository = deliveryRepository;
 
             DataContext = new OrdersViewModel(
                 orderRepository,
@@ -37,6 +40,7 @@ namespace CourierService.Views
                 courierRepository,
                 transportRepository);
             LoadOrderIds();
+            
         }
 
         public void LoadOrderIds()
@@ -51,7 +55,7 @@ namespace CourierService.Views
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            var addOrderWindow = new AddOrderWindow(_orderRepository, _clientRepository, _cargoTypeRepository, _courierRepository, _transportRepository);
+            var addOrderWindow = new AddOrderWindow(_orderRepository, _clientRepository, _cargoTypeRepository, _courierRepository, _transportRepository, _deliveryRepository);
             addOrderWindow.ShowDialog();
             LoadOrders();
         }
@@ -83,7 +87,8 @@ namespace CourierService.Views
                 _clientRepository,
                 _cargoTypeRepository,
                 _courierRepository,
-                _transportRepository
+                _transportRepository,
+                _deliveryRepository
             );
             deleteOrderWindow.ShowDialog();
 
