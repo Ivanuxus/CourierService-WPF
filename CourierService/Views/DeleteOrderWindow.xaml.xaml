@@ -6,8 +6,8 @@
         <ImageBrush ImageSource="/Images/back1.png" Stretch="UniformToFill"/>
     </Window.Background>
     <StackPanel Margin="10">
-        <Label Content="Выберите ID заказа:"/>
-        <ComboBox x:Name="OrderIdComboBox" Width="200"/>
-        <Button Content="Удалить заказ" Width="152" Click="DeleteButton_Click"/>
+        <Label Content="Выберите ID заказа:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,0,0,0"/>
+        <ComboBox x:Name="OrderIdComboBox" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,50,0,0"/>
+        <Button Content="Удалить заказ" Width="152" Click="DeleteButton_Click" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,30,0,0"/>
     </StackPanel>
 </Window>

@@ -10,23 +10,23 @@
 
 
         <Label Content="Имя клиента:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
-        <TextBox x:Name="ClientNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <TextBox x:Name="ClientNameTextBox" HorizontalAlignment="Left" Margin="10,0,0,0" Width="264"/>
 
-        <Label Content="Дата заказа:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
-        <DatePicker x:Name="OrderDatePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <Label Content="Дата заказа:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
+        <DatePicker x:Name="OrderDatePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
 
-        <Label Content="Описание груза:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
-        <TextBox x:Name="CargoDescriptionTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Height="60"/>
+        <Label Content="Описание груза:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
+        <TextBox x:Name="CargoDescriptionTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Height="60" Width="264"/>
 
-        <Label Content="Тип груза:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
-        <TextBox x:Name="CargoTypeNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <Label Content="Тип груза:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
+        <TextBox x:Name="CargoTypeNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
 
-        <Label Content="Имя курьера:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
-        <TextBox x:Name="CourierNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <Label Content="Имя курьера:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
+        <TextBox x:Name="CourierNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
 
-        <Label Content="Базовая цена:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
-        <TextBox x:Name="BasePriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <Label Content="Базовая цена:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
+        <TextBox x:Name="BasePriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
 
-        <Button Content="Сохранить" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Click="SaveButton_Click"/>
+        <Button Content="Сохранить" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0" Click="SaveButton_Click"/>
     </StackPanel>
 </Window>

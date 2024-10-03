@@ -108,7 +108,7 @@ namespace CourierService.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CourierService;component/views/addorderwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CourierService;V1.0.0.0;component/views/addorderwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Views\AddOrderWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

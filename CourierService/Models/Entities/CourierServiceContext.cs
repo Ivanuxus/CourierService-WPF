@@ -25,6 +25,6 @@ public partial class CourierServiceContext : DbContext
     }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseNpgsql("Host=localhost;Username=postgres;Password=0000;Database=DBB; Include Error Detail=true");
+        optionsBuilder.UseNpgsql("Host=localhost;Username=postgres;Password=0000;Database=CourierService; Include Error Detail=true");
     }
 }

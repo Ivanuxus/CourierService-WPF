@@ -58,6 +58,7 @@ namespace CourierService.Views
             var addOrderWindow = new AddOrderWindow(_orderRepository, _clientRepository, _cargoTypeRepository, _courierRepository, _transportRepository, _deliveryRepository);
             addOrderWindow.ShowDialog();
             LoadOrders();
+            LoadOrderIds();
         }
 
         private void DiscountButton_Click(object sender, RoutedEventArgs e)
