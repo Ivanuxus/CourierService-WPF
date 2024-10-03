@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{B1BC82ED-A5EE-4E46-8B91-73E3200B770D}|CourierService.csproj|c:\\users\\alfer\\desktop\\\u043A\u043F\u043E\u043F\u043E\u043E\\courierservicewpf\\courierservice\\views\\editorderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1BC82ED-A5EE-4E46-8B91-73E3200B770D}|CourierService.csproj|solutionrelative:views\\editorderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1BC82ED-A5EE-4E46-8B91-73E3200B770D}|CourierService.csproj|c:\\users\\alfer\\desktop\\\u043A\u043F\u043E\u043F\u043E\u043E\\courierservicewpf\\courierservice\\views\\editorderwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B1BC82ED-A5EE-4E46-8B91-73E3200B770D}|CourierService.csproj|solutionrelative:views\\editorderwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1BC82ED-A5EE-4E46-8B91-73E3200B770D}|CourierService.csproj|c:\\users\\alfer\\desktop\\\u043A\u043F\u043E\u043F\u043E\u043E\\courierservicewpf\\courierservice\\views\\discountwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{B1BC82ED-A5EE-4E46-8B91-73E3200B770D}|CourierService.csproj|solutionrelative:views\\discountwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B1BC82ED-A5EE-4E46-8B91-73E3200B770D}|CourierService.csproj|c:\\users\\alfer\\desktop\\\u043A\u043F\u043E\u043F\u043E\u043E\\courierservicewpf\\courierservice\\views\\addorderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1BC82ED-A5EE-4E46-8B91-73E3200B770D}|CourierService.csproj|solutionrelative:views\\addorderwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -30,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Bookmark",
@@ -50,20 +62,57 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DiscountWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\DiscountWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\DiscountWindow.xaml",
+              "ToolTip": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\DiscountWindow.xaml",
+              "RelativeToolTip": "Views\\DiscountWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-03T13:19:50.62Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "EditOrderWindow.xaml.cs",
+              "DocumentMoniker": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\EditOrderWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Views\\EditOrderWindow.xaml.cs",
+              "ToolTip": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\EditOrderWindow.xaml.cs",
+              "RelativeToolTip": "Views\\EditOrderWindow.xaml.cs",
+              "ViewState": "AgIAAIkAAAAAAAAAAAAqwKUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-03T13:15:29.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "EditOrderWindow.xaml",
+              "DocumentMoniker": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\EditOrderWindow.xaml",
+              "RelativeDocumentMoniker": "Views\\EditOrderWindow.xaml",
+              "ToolTip": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\EditOrderWindow.xaml*",
+              "RelativeToolTip": "Views\\EditOrderWindow.xaml*",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-10-03T13:15:04.988Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "AddOrderWindow.xaml.cs",
               "DocumentMoniker": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\AddOrderWindow.xaml.cs",
               "RelativeDocumentMoniker": "Views\\AddOrderWindow.xaml.cs",
               "ToolTip": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\AddOrderWindow.xaml.cs",
               "RelativeToolTip": "Views\\AddOrderWindow.xaml.cs",
-              "ViewState": "AgIAAGwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAJoAAAAAAAAAAAAqwLYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-03T13:12:22.994Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "AddOrderWindow.xaml",
               "DocumentMoniker": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\AddOrderWindow.xaml",
               "RelativeDocumentMoniker": "Views\\AddOrderWindow.xaml",
@@ -75,7 +124,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "AddCourierWindow.xaml",
               "DocumentMoniker": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\AddCourierWindow.xaml",
               "RelativeDocumentMoniker": "Views\\AddCourierWindow.xaml",
@@ -87,7 +136,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "AddClientWindow.xaml",
               "DocumentMoniker": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\AddClientWindow.xaml",
               "RelativeDocumentMoniker": "Views\\AddClientWindow.xaml",
@@ -99,7 +148,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "AddCargoTypeWindow.xaml",
               "DocumentMoniker": "C:\\Users\\alfer\\Desktop\\\u041A\u041F\u041E\u041F\u041E\u041E\\CourierServiceWPF\\CourierService\\Views\\AddCargoTypeWindow.xaml",
               "RelativeDocumentMoniker": "Views\\AddCargoTypeWindow.xaml",

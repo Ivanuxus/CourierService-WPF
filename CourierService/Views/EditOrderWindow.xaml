@@ -8,22 +8,36 @@
     <StackPanel Margin="10">
         <TextBlock x:Name="OrderIdTextBlock" Text="{Binding OrderID}" />
 
+        <!-- Клиент -->
+        <StackPanel Orientation="Horizontal" Margin="10,0,0,0">
+            <Label Content="Имя клиента:" Width="200" VerticalAlignment="Center"/>
+            <ComboBox x:Name="ClientComboBox" Width="200" DisplayMemberPath="FullName" SelectedValuePath="ClientID"/>
+            <Button Content="+" Width="40" Margin="5,0,0,0" Click="AddClientButton_Click"/>
+        </StackPanel>
 
-        <Label Content="Имя клиента:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
-        <TextBox x:Name="ClientNameTextBox" HorizontalAlignment="Left" Margin="10,0,0,0" Width="264"/>
-
-        <Label Content="Дата заказа:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
+        <!-- Дата заказа -->
+        <Label Content="Дата заказа:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
         <DatePicker x:Name="OrderDatePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
 
+        <!-- Описание груза -->
         <Label Content="Описание груза:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
-        <TextBox x:Name="CargoDescriptionTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Height="60" Width="264"/>
+        <TextBox x:Name="CargoDescriptionTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Height="30" Width="300"/>
 
-        <Label Content="Тип груза:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
-        <TextBox x:Name="CargoTypeNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
+        <!-- Тип груза -->
+        <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+            <Label Content="Тип груза:" Width="200" VerticalAlignment="Center"/>
+            <ComboBox x:Name="CargoTypeComboBox" Width="200" DisplayMemberPath="TypeName" SelectedValuePath="CargoTypeID"/>
+            <Button Content="+" Width="40" Margin="5,0,0,0" Click="AddCargoTypeButton_Click"/>
+        </StackPanel>
 
-        <Label Content="Имя курьера:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
-        <TextBox x:Name="CourierNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
+        <!-- Имя курьера -->
+        <StackPanel Orientation="Horizontal" Margin="10,10,0,0">
+            <Label Content="Имя курьера:" Width="200" VerticalAlignment="Center"/>
+            <ComboBox x:Name="CourierComboBox" Width="200" DisplayMemberPath="FullName" SelectedValuePath="CourierID"/>
+            <Button Content="+" Width="40" Margin="5,0,0,0" Click="AddCourierButton_Click"/>
+        </StackPanel>
 
+        <!-- Базовая цена -->
         <Label Content="Базовая цена:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
         <TextBox x:Name="BasePriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Width="264"/>
 
