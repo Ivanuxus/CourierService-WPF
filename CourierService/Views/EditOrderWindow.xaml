@@ -1,0 +1,32 @@
+﻿<Window x:Class="CourierService.Views.EditOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Изменить заказ" Height="500" Width="600">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/back1.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <StackPanel Margin="10">
+        <TextBlock x:Name="OrderIdTextBlock" Text="{Binding OrderID}" />
+
+
+        <Label Content="Имя клиента:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <TextBox x:Name="ClientNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+
+        <Label Content="Дата заказа:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <DatePicker x:Name="OrderDatePicker" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+
+        <Label Content="Описание груза:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <TextBox x:Name="CargoDescriptionTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Height="60"/>
+
+        <Label Content="Тип груза:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <TextBox x:Name="CargoTypeNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+
+        <Label Content="Имя курьера:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <TextBox x:Name="CourierNameTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+
+        <Label Content="Базовая цена:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+        <TextBox x:Name="BasePriceTextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0"/>
+
+        <Button Content="Сохранить" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,0,0,0" Click="SaveButton_Click"/>
+    </StackPanel>
+</Window>

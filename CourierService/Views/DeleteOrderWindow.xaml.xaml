@@ -1,0 +1,13 @@
+﻿<Window x:Class="CourierService.Views.DeleteOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Удалить заказ" Height="300" Width="400">
+    <Window.Background>
+        <ImageBrush ImageSource="/Images/back1.png" Stretch="UniformToFill"/>
+    </Window.Background>
+    <StackPanel Margin="10">
+        <Label Content="Выберите ID заказа:"/>
+        <ComboBox x:Name="OrderIdComboBox" Width="200"/>
+        <Button Content="Удалить заказ" Width="152" Click="DeleteButton_Click"/>
+    </StackPanel>
+</Window>
