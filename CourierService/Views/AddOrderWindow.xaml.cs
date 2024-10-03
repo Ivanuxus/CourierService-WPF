@@ -13,7 +13,7 @@ namespace CourierService.Views
         private readonly ICargoTypeRepository _cargoTypeRepository;
         private readonly ICourierRepository _courierRepository;
         private readonly ITransportRepository _transportRepository;
-        private readonly IDeliveryRepository _deliveryRepository; // Add this line for Delivery repository
+        private readonly IDeliveryRepository _deliveryRepository;
 
         public AddOrderWindow(
             IOrderRepository orderRepository,
@@ -21,7 +21,7 @@ namespace CourierService.Views
             ICargoTypeRepository cargoTypeRepository,
             ICourierRepository courierRepository,
             ITransportRepository transportRepository,
-            IDeliveryRepository deliveryRepository) // Add this parameter
+            IDeliveryRepository deliveryRepository)
         {
             InitializeComponent();
             _orderRepository = orderRepository;
@@ -29,112 +29,118 @@ namespace CourierService.Views
             _cargoTypeRepository = cargoTypeRepository;
             _courierRepository = courierRepository;
             _transportRepository = transportRepository;
-            _deliveryRepository = deliveryRepository; // Initialize Delivery repository
+            _deliveryRepository = deliveryRepository;
+
+            LoadComboBoxes();
+        }
+
+        private void LoadComboBoxes()
+        {
+            // Загрузка клиентов
+            ClientComboBox.ItemsSource = _clientRepository.GetAllClients()
+                .Select(c => new
+                {
+                    c.ClientID,
+                    FullName = $"{c.FirstName} {c.LastName}"
+                }).ToList();
+
+            // Загрузка типов груза
+            CargoTypeComboBox.ItemsSource = _cargoTypeRepository.GetAllCargoTypes().ToList();
+
+            // Загрузка курьеров
+            CourierComboBox.ItemsSource = _courierRepository.GetAllCouriers()
+                .Select(cr => new
+                {
+                    cr.CourierID,
+                    FullName = $"{cr.FirstName} {cr.LastName}"
+                }).ToList();
+
+            // Загрузка типов транспорта
+            TransportTypeComboBox.ItemsSource = _transportRepository.GetAllTransports().ToList();
+        }
+
+        private void AddClientButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Откройте диалоговое окно для добавления нового клиента
+            var addClientWindow = new AddClientWindow(_clientRepository)
+            {
+                Owner = this // Устанавливаем владельца окна
+            };
+            if (addClientWindow.ShowDialog() == true)
+            {
+                // Обновите ComboBox после добавления
+                LoadComboBoxes();
+            }
+        }
+
+        private void AddCargoTypeButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            // Откройте диалоговое окно для добавления нового типа груза
+            var addCargoTypeWindow = new AddCargoTypeWindow(_cargoTypeRepository);
+            if (addCargoTypeWindow.ShowDialog() == true)
+            {
+                // Обновите ComboBox после добавления
+                LoadComboBoxes();
+            }
+        }
+
+        private void AddCourierButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            // Откройте диалоговое окно для добавления нового курьера
+            var addCourierWindow = new AddCourierWindow(_courierRepository);
+            if (addCourierWindow.ShowDialog() == true)
+            {
+                // Обновите ComboBox после добавления
+                LoadComboBoxes();
+            }
+        }
+
+        private void AddTransportButton_Click(object sender, RoutedEventArgs e)
+        {
+            
+            // Откройте диалоговое окно для добавления нового типа транспорта
+            var addTransportWindow = new AddTransportWindow(_transportRepository);
+            if (addTransportWindow.ShowDialog() == true)
+            {
+                // Обновите ComboBox после добавления
+                LoadComboBoxes();
+            }
         }
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                // Get order date
+                // Получение даты заказа
                 DateTime orderDate = OrderDatePicker.SelectedDate?.ToUniversalTime() ?? DateTime.UtcNow;
 
-                // Get maximum OrderID and increase it by 1
+                // Получение максимального OrderID и увеличение на 1
                 int maxOrderId = _orderRepository.GetMaxOrderId();
                 int newOrderId = maxOrderId + 1;
 
-                // Get names from text boxes
-                string clientName = ClientNameTextBox.Text.Trim();
-                string cargoTypeName = CargoTypeNameTextBox.Text.Trim();
-                string courierName = CourierNameTextBox.Text.Trim();
-                string transportType = TransportTypeTextBox.Text.Trim();
-
-                Client client;
-                var clientNames = clientName.Split(' ');
-                if (clientNames.Length < 2)
+                // Получение выбранных значений из ComboBox
+                if (ClientComboBox.SelectedValue == null ||
+                    CargoTypeComboBox.SelectedValue == null ||
+                    CourierComboBox.SelectedValue == null ||
+                    TransportTypeComboBox.SelectedValue == null)
                 {
-                    throw new Exception("Please enter at least a first and last name for the client.");
-                }
-                string clientFirstName = clientNames[0];
-                string clientLastName = string.Join(" ", clientNames.Skip(1));
-
-                // Check if client exists
-                client = _clientRepository.GetAllClients()
-                    .FirstOrDefault(c => c.FirstName.Equals(clientFirstName, StringComparison.OrdinalIgnoreCase)
-                                        && c.LastName.Equals(clientLastName, StringComparison.OrdinalIgnoreCase));
-                if (client == null)
-                {
-                    int maxClientId = _clientRepository.GetMaxClientId();
-                    client = new Client
-                    {
-                        ClientID = maxClientId + 1,
-                        FirstName = clientFirstName,
-                        LastName = clientLastName,
-                        Phone = "Неизвестно",
-                        Email = "Неизвестно"
-                    };
-                    _clientRepository.AddClient(client);
+                    throw new Exception("Пожалуйста, заполните все поля.");
                 }
 
-                // Process cargo type
-                CargoType cargoType;
-                cargoType = _cargoTypeRepository.GetAllCargoTypes()
-                    .FirstOrDefault(ct => ct.TypeName.Equals(cargoTypeName, StringComparison.OrdinalIgnoreCase));
-                if (cargoType == null)
-                {
-                    int maxCargoTypeId = _cargoTypeRepository.GetMaxCargoTypeId();
-                    cargoType = new CargoType
-                    {
-                        CargoTypeID = maxCargoTypeId + 1,
-                        TypeName = cargoTypeName,
-                        Description = "Неизвестно" // Устанавливаем значение по умолчанию
-                    };
-                    _cargoTypeRepository.AddCargoType(cargoType);
-                }
+                int clientId = (int)ClientComboBox.SelectedValue;
+                int cargoTypeId = (int)CargoTypeComboBox.SelectedValue;
+                int courierId = (int)CourierComboBox.SelectedValue;
+                int transportId = (int)TransportTypeComboBox.SelectedValue;
 
-                // Process courier
-                Courier courier;
-                var courierNames = courierName.Split(' ');
-                if (courierNames.Length < 2)
-                {
-                    throw new Exception("Please enter at least a first and last name for the courier.");
-                }
-                string courierFirstName = courierNames[0];
-                string courierLastName = string.Join(" ", courierNames.Skip(1));
+                // Получение объектов из репозиториев
+                var client = _clientRepository.GetClientById(clientId);
+                var cargoType = _cargoTypeRepository.GetCargoTypeById(cargoTypeId);
+                var courier = _courierRepository.GetCourierById(courierId);
+                var transport = _transportRepository.GetTransportById(transportId);
 
-                courier = _courierRepository.GetAllCouriers()
-                    .FirstOrDefault(cr => cr.FirstName.Equals(courierFirstName, StringComparison.OrdinalIgnoreCase)
-                                       && cr.LastName.Equals(courierLastName, StringComparison.OrdinalIgnoreCase));
-                if (courier == null)
-                {
-                    int maxCourierId = _courierRepository.GetMaxCourierId();
-                    courier = new Courier
-                    {
-                        CourierID = maxCourierId + 1,
-                        FirstName = courierFirstName,
-                        LastName = courierLastName,
-                        Phone = "Неизвестно" // Устанавливаем значение по умолчанию
-                    };
-                    _courierRepository.AddCourier(courier);
-                }
-
-                // Process transport
-                Transport transport;
-                transport = _transportRepository.GetAllTransports()
-                    .FirstOrDefault(t => t.Type.Equals(transportType, StringComparison.OrdinalIgnoreCase));
-                if (transport == null)
-                {
-                    int maxTransportId = _transportRepository.GetMaxTransportId();
-                    transport = new Transport
-                    {
-                        TransportID = maxTransportId + 1,
-                        Type = transportType,
-                        LicensePlate = "Неизвестно" // Устанавливаем значение по умолчанию
-                    };
-                    _transportRepository.AddTransport(transport);
-                }
-
-                // Create new order
+                // Создание нового заказа
                 var newOrder = new Order
                 {
                     OrderID = newOrderId,
@@ -147,29 +153,29 @@ namespace CourierService.Views
                     TransportID = transport.TransportID
                 };
 
-                // Add order to repository
+                // Добавление заказа в репозиторий
                 _orderRepository.AddOrder(newOrder);
 
-                // Create and add delivery
+                // Создание и добавление доставки
                 var delivery = new Delivery
                 {
                     DeliveryID = newOrder.OrderID,
                     OrderID = newOrder.OrderID,
-                    DeliveryDate = orderDate.AddDays(1), // Example: Set delivery date to the next day
-                    TotalPrice = newOrder.BasePrice // Use the order base price as total price
+                    DeliveryDate = orderDate.AddDays(1), // Пример: Установить дату доставки на следующий день
+                    TotalPrice = newOrder.BasePrice // Использовать базовую цену заказа как итоговую цену
                 };
                 _deliveryRepository.AddDelivery(delivery);
 
-                MessageBox.Show($"Order successfully added with ID: {newOrder.OrderID}.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show($"Заказ успешно добавлен с ID: {newOrder.OrderID}.", "Успех", MessageBoxButton.OK, MessageBoxImage.Information);
                 Close();
             }
             catch (FormatException)
             {
-                MessageBox.Show("Please enter valid values for all fields.", "Input Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Пожалуйста, введите корректные значения для всех полей.", "Ошибка ввода", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred while adding the order: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show($"Произошла ошибка при добавлении заказа: {ex.Message}", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
     }

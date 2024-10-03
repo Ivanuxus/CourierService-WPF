@@ -1,0 +1,14 @@
+﻿<Window x:Class="CourierService.Views.AddTransportWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить транспорт" Height="300" Width="300">
+    <StackPanel Margin="10">
+        <Label Content="Тип транспорта:" />
+        <TextBox x:Name="TransportTypeTextBox" Margin="0,0,0,10" />
+
+        <Label Content="Номерной знак:" />
+        <TextBox x:Name="LicensePlateTextBox" Margin="0,0,0,10" />
+
+        <Button Content="Добавить" Click="AddButton_Click" Margin="0,20,0,0" />
+    </StackPanel>
+</Window>

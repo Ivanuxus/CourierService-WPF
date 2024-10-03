@@ -1,0 +1,14 @@
+﻿<Window x:Class="CourierService.Views.AddCargoTypeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Добавить тип груза" Height="400" Width="400">
+    <StackPanel Margin="20">
+        <Label Content="Название типа груза:" />
+        <TextBox x:Name="CargoTypeNameTextBox" />
+
+        <Label Content="Описание типа груза:" Margin="0,10,0,0" />
+        <TextBox x:Name="CargoTypeDescriptionTextBox" />
+
+        <Button Content="Добавить" Click="AddCargoTypeButton1_Click" Margin="0,20,0,0" Width="100" HorizontalAlignment="Center" />
+    </StackPanel>
+</Window>

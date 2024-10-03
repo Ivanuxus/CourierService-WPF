@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\alfer\Desktop\КПОПОО\CourierServiceWPF\CourierService\App.xaml
-7-124541997
+11-1575097407
 
-48-737199925
+522024293219
 2291597834426
-MainWindow.xaml;Views\AddOrderWindow.xaml;Views\DeleteOrderWindow.xaml.xaml;Views\DiscountWindow.xaml;Views\EditOrderWindow.xaml;Views\LoginWindow.xaml;Views\OrdersView.xaml;
+MainWindow.xaml;Views\AddCargoTypeWindow.xaml;Views\AddClientWindow.xaml;Views\AddCourierWindow.xaml;Views\AddOrderWindow.xaml;Views\AddTransportWindow.xaml;Views\DeleteOrderWindow.xaml.xaml;Views\DiscountWindow.xaml;Views\EditOrderWindow.xaml;Views\LoginWindow.xaml;Views\OrdersView.xaml;
 
 False
 

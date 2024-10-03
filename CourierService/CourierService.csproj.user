@@ -30,6 +30,15 @@
     <Page Update="MainWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\AddTransportWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddCourierWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\AddClientWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\AddOrderWindow.xaml">
       <SubType>Designer</SubType>
     </Page>

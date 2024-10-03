@@ -1,36 +1,55 @@
 ﻿<Window x:Class="CourierService.Views.AddOrderWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Добавить заказ" Height="600" Width="400">
+        Title="Добавить заказ" Height="600" Width="500">
     <Window.Background>
         <ImageBrush ImageSource="/Images/back1.png" Stretch="UniformToFill"/>
     </Window.Background>
 
-    <StackPanel Margin="10">
-        <Label Content="Имя клиента (Имя Фамилия):" />
-        <TextBox x:Name="ClientNameTextBox" />
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <StackPanel Margin="10" VerticalAlignment="Top">
+            <!-- Клиент -->
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Center">
+                <Label Content="Имя клиента (Имя Фамилия):" Width="200" VerticalAlignment="Center"/>
+                <ComboBox x:Name="ClientComboBox" Width="150" DisplayMemberPath="FullName" SelectedValuePath="ClientID" />
+                <Button Content="+" Width="40" Margin="5,0,0,0" Click="AddClientButton_Click"/>
+            </StackPanel>
 
-        <Label Content="Название типа груза:" Margin="0,10,0,0" />
-        <TextBox x:Name="CargoTypeNameTextBox" />
+            <!-- Тип груза -->
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Center">
+                <Label Content="Название типа груза:" Width="200" VerticalAlignment="Center"/>
+                <ComboBox x:Name="CargoTypeComboBox" Width="150" DisplayMemberPath="TypeName" SelectedValuePath="CargoTypeID" />
+                <Button Content="+" Width="40" Margin="5,0,0,0" Click="AddCargoTypeButton_Click"/>
+            </StackPanel>
 
-        <Label Content="Имя курьера (Имя Фамилия):" Margin="0,10,0,0" />
-        <TextBox x:Name="CourierNameTextBox" />
+            <!-- Курьер -->
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Center">
+                <Label Content="Имя курьера (Имя Фамилия):" Width="200" VerticalAlignment="Center"/>
+                <ComboBox x:Name="CourierComboBox" Width="150" DisplayMemberPath="FullName" SelectedValuePath="CourierID" />
+                <Button Content="+" Width="40" Margin="5,0,0,0" Click="AddCourierButton_Click"/>
+            </StackPanel>
 
-        <Label Content="Тип транспорта:" Margin="0,10,0,0" />
-        <TextBox x:Name="TransportTypeTextBox" />
+            <!-- Тип транспорта -->
+            <StackPanel Orientation="Horizontal" Margin="0,10,0,0" VerticalAlignment="Center">
+                <Label Content="Тип транспорта:" Width="200" VerticalAlignment="Center"/>
+                <ComboBox x:Name="TransportTypeComboBox" Width="150" DisplayMemberPath="Type" SelectedValuePath="TransportID" />
+                <Button Content="+" Width="40" Margin="5,0,0,0" Click="AddTransportButton_Click"/>
+            </StackPanel>
 
-        <Label Content="Описание груза:" Margin="0,10,0,0" />
-        <TextBox x:Name="CargoDescriptionTextBox" />
+            <!-- Описание груза -->
+            <Label Content="Описание груза:" Margin="0,10,0,0" />
+            <TextBox x:Name="CargoDescriptionTextBox" />
 
-        <Label Content="Базовая цена:" Margin="0,10,0,0" />
-        <TextBox x:Name="BasePriceTextBox" />
+            <!-- Базовая цена -->
+            <Label Content="Базовая цена:" Margin="0,10,0,0" />
+            <TextBox x:Name="BasePriceTextBox" />
 
+            <!-- Дата заказа -->
+            <Label Content="Дата заказа:" Margin="0,10,0,0" />
+            <DatePicker Name="OrderDatePicker" />
 
-
-        <Label Content="Дата заказа:"/>
-        <DatePicker Name="OrderDatePicker" />
-        <Button Content="Добавить" Click="AddButton_Click" Margin="0,20,0,0" />
-
-
-    </StackPanel>
+            <!-- Кнопка Добавить -->
+            <Button Content="Добавить" Click="AddButton_Click" Margin="0,20,0,0" />
+        </StackPanel>
+    </ScrollViewer>
 </Window>
